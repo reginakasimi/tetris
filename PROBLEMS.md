@@ -16,3 +16,7 @@ Sıkı Bağlılık (Tight Coupling): Giriş alma ve oyun alanı matrisine (matri
 Statik Veri Yapıları: prevMatrix gibi yapılarda dizilerin boyutları (3x3, 4x4) önceden belirlenmiş. Bu, farklı boyutlarda şekiller eklemeyi zorlaştırır.
 
 AI başka problemleri da gördü. Ama çoğu sorunlar benim söylediğim gibi oldu.
+
+
+FAZ1
+Ben Creational Factory design pattern kullandım. Class'taki fonksiyonlar artık tekrar etmiyor. 1. problemi çözdüm.
