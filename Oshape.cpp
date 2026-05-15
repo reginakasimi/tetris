@@ -4,7 +4,6 @@
 Oshape::Oshape(){
     initializeShapeMatrix();
     shapeO();
-    next = 1;
 }
 
 
@@ -21,7 +20,6 @@ void Oshape::initializeShapeMatrix()
 
 void Oshape::input(char matrix[20][10])
 {
-    printf(":)\n");
     
     char input;
     scanf(" %c", &input);
@@ -41,12 +39,7 @@ void Oshape::input(char matrix[20][10])
         }
        
     }
-    /*else if(input == 'S' || input == 's'){
-        if(!checkBoundDown() && !checkHashInTheBottom(matrix)){
-            moveDown();
-        }
-    }
-     */
+    
 
 }
 
@@ -92,50 +85,7 @@ void Oshape::shapeO(){
 
    
 }
-void Oshape::moveUp(){
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y--;
-            
-        }
-    }
-    
-}
-void Oshape::moveDown(){
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y++;
-            
-        }
-    }
-}
 
-
-void Oshape::moveRight()
-{
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].x++;
-            
-        }
-    }
-    
-    
-}
-
-void Oshape::moveLeft(){
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            
-            shapeMatrix[i][j].x--;
-        }
-    }
-}
 
 
 bool Oshape::checkBoundDown(){
@@ -212,7 +162,6 @@ bool Oshape::checkHashInTheBottom(char matrix[20][10]){
         for(int j = 0; j < 3; j++){
             
             if(matrix[shapeMatrix[i][j].y + 1][shapeMatrix[i][j].x] == '#' && shapeMatrix[i][j].switches == true){
-                printf("KILL ME\n");
 
                 return true;
             }

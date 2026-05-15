@@ -4,7 +4,6 @@
 Sshape::Sshape(){
     initializeShapeMatrix();
     shapeS();
-    next = 1;
 }
 
 
@@ -21,7 +20,6 @@ void Sshape::initializeShapeMatrix()
 
 void Sshape::input(char matrix[20][10])
 {
-    printf(":)\n");
     
     char input;
     scanf(" %c", &input);
@@ -75,12 +73,7 @@ void Sshape::input(char matrix[20][10])
         }
        
     }
-    /*else if(input == 'S' || input == 's'){
-        if(!checkBoundDown() && !checkHashInTheBottom(matrix)){
-            moveDown();
-        }
-    }
-     */
+    
 
 }
 
@@ -126,50 +119,7 @@ void Sshape::shapeS(){
 
    
 }
-void Sshape::moveUp(){
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y--;
-            
-        }
-    }
-    
-}
-void Sshape::moveDown(){
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y++;
-            
-        }
-    }
-}
 
-
-void Sshape::moveRight()
-{
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].x++;
-            
-        }
-    }
-    
-    
-}
-
-void Sshape::moveLeft(){
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            
-            shapeMatrix[i][j].x--;
-        }
-    }
-}
 
 
 bool Sshape::checkBoundDown(){
@@ -246,7 +196,6 @@ bool Sshape::checkHashInTheBottom(char matrix[20][10]){
         for(int j = 0; j < 3; j++){
             
             if(matrix[shapeMatrix[i][j].y + 1][shapeMatrix[i][j].x] == '#' && shapeMatrix[i][j].switches == true){
-                printf("KILL ME\n");
 
                 return true;
             }

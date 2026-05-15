@@ -4,7 +4,7 @@
 Lshape::Lshape(){
     initializeShapeMatrix();
     shapeL();
-    next = 1;
+  
 }
 
 
@@ -21,7 +21,6 @@ void Lshape::initializeShapeMatrix()
 
 void Lshape::input(char matrix[20][10])
 {
-    printf(":)\n");
     
     char input;
     scanf(" %c", &input);
@@ -75,12 +74,7 @@ void Lshape::input(char matrix[20][10])
         }
        
     }
-    /*else if(input == 'S' || input == 's'){
-        if(!checkBoundDown() && !checkHashInTheBottom(matrix)){
-            moveDown();
-        }
-    }
-     */
+    
 
 }
 
@@ -125,50 +119,6 @@ void Lshape::shapeL(){
 
 
    
-}
-void Lshape::moveUp(){
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y--;
-            
-        }
-    }
-    
-}
-void Lshape::moveDown(){
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y++;
-            
-        }
-    }
-}
-
-
-void Lshape::moveRight()
-{
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].x++;
-            
-        }
-    }
-    
-    
-}
-
-void Lshape::moveLeft(){
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            
-            shapeMatrix[i][j].x--;
-        }
-    }
 }
 
 
@@ -246,7 +196,6 @@ bool Lshape::checkHashInTheBottom(char matrix[20][10]){
         for(int j = 0; j < 3; j++){
             
             if(matrix[shapeMatrix[i][j].y + 1][shapeMatrix[i][j].x] == '#' && shapeMatrix[i][j].switches == true){
-                printf("KILL ME\n");
 
                 return true;
             }

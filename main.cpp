@@ -55,7 +55,7 @@ void cleanPrevFrame(Shape& shape){
 }
 
 void cleanPrevFrameIShape(Shape& shape){
-    printf("HIIII\n");
+    
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 4; j++){
             if(shape.getShapeMatrix().shapeMatrixI[i][j].switches == true){
@@ -155,7 +155,10 @@ int main(){
     
     printMat();
 
-    
+    printf("W - change direction\n");
+    printf("D - go right\n");
+    printf("A - go left\n");
+    printf("S - go down\n");
     
     while(true){
 

@@ -5,7 +5,7 @@
 Zshape::Zshape(){
     initializeShapeMatrix();
     shapeZ();
-    next = 1;
+   
 }
 
 
@@ -22,7 +22,7 @@ void Zshape::initializeShapeMatrix()
 
 void Zshape::input(char matrix[20][10])
 {
-    printf(":)\n");
+    
     
     char input;
     scanf(" %c", &input);
@@ -76,12 +76,7 @@ void Zshape::input(char matrix[20][10])
         }
        
     }
-    /*else if(input == 'S' || input == 's'){
-        if(!checkBoundDown() && !checkHashInTheBottom(matrix)){
-            moveDown();
-        }
-    }
-     */
+   
 
 }
 
@@ -126,50 +121,6 @@ void Zshape::shapeZ(){
 
 
    
-}
-void Zshape::moveUp(){
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y--;
-            
-        }
-    }
-    
-}
-void Zshape::moveDown(){
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y++;
-            
-        }
-    }
-}
-
-
-void Zshape::moveRight()
-{
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].x++;
-            
-        }
-    }
-    
-    
-}
-
-void Zshape::moveLeft(){
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            
-            shapeMatrix[i][j].x--;
-        }
-    }
 }
 
 
@@ -247,7 +198,7 @@ bool Zshape::checkHashInTheBottom(char matrix[20][10]){
         for(int j = 0; j < 3; j++){
             
             if(matrix[shapeMatrix[i][j].y + 1][shapeMatrix[i][j].x] == '#' && shapeMatrix[i][j].switches == true){
-                printf("KILL ME\n");
+               
 
                 return true;
             }

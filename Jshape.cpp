@@ -4,7 +4,7 @@
 Jshape::Jshape(){
     initializeShapeMatrix();
     shapeJ();
-    next = 1;
+    
 }
 
 
@@ -21,7 +21,6 @@ void Jshape::initializeShapeMatrix()
 
 void Jshape::input(char matrix[20][10])
 {
-    printf(":)\n");
     
     char input;
     scanf(" %c", &input);
@@ -75,12 +74,7 @@ void Jshape::input(char matrix[20][10])
         }
        
     }
-    /*else if(input == 'S' || input == 's'){
-        if(!checkBoundDown() && !checkHashInTheBottom(matrix)){
-            moveDown();
-        }
-    }
-     */
+    
 
 }
 
@@ -126,50 +120,7 @@ void Jshape::shapeJ(){
 
    
 }
-void Jshape::moveUp(){
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y--;
-            
-        }
-    }
-    
-}
-void Jshape::moveDown(){
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y++;
-            
-        }
-    }
-}
 
-
-void Jshape::moveRight()
-{
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].x++;
-            
-        }
-    }
-    
-    
-}
-
-void Jshape::moveLeft(){
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            
-            shapeMatrix[i][j].x--;
-        }
-    }
-}
 
 
 bool Jshape::checkBoundDown(){
@@ -246,7 +197,6 @@ bool Jshape::checkHashInTheBottom(char matrix[20][10]){
         for(int j = 0; j < 3; j++){
             
             if(matrix[shapeMatrix[i][j].y + 1][shapeMatrix[i][j].x] == '#' && shapeMatrix[i][j].switches == true){
-                printf("KILL ME\n");
 
                 return true;
             }

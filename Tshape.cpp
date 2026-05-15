@@ -6,7 +6,7 @@
 Tshape::Tshape(){
     initializeShapeMatrix();
     shapeT();
-    next = 1;
+   
 }
 
 
@@ -23,7 +23,7 @@ void Tshape::initializeShapeMatrix()
 
 void Tshape::input(char matrix[20][10])
 {
-    printf(":)\n");
+    
     
     char input;
     scanf(" %c", &input);
@@ -77,12 +77,7 @@ void Tshape::input(char matrix[20][10])
         }
        
     }
-    /*else if(input == 'S' || input == 's'){
-        if(!checkBoundDown() && !checkHashInTheBottom(matrix)){
-            moveDown();
-        }
-    }
-     */
+    
 
 }
 
@@ -127,50 +122,6 @@ void Tshape::shapeT(){
 
 
    
-}
-void Tshape::moveUp(){
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y--;
-            
-        }
-    }
-    
-}
-void Tshape::moveDown(){
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].y++;
-            
-        }
-    }
-}
-
-
-void Tshape::moveRight()
-{
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            shapeMatrix[i][j].x++;
-            
-        }
-    }
-    
-    
-}
-
-void Tshape::moveLeft(){
-    
-    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            
-            shapeMatrix[i][j].x--;
-        }
-    }
 }
 
 
@@ -248,7 +199,7 @@ bool Tshape::checkHashInTheBottom(char matrix[20][10]){
         for(int j = 0; j < 3; j++){
             
             if(matrix[shapeMatrix[i][j].y + 1][shapeMatrix[i][j].x] == '#' && shapeMatrix[i][j].switches == true){
-                printf("KILL ME\n");
+                
 
                 return true;
             }

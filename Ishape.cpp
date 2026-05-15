@@ -4,7 +4,6 @@
 Ishape::Ishape(){
     initializeShapeMatrix();
     shapeI();
-    next = 1;
 }
 
 
@@ -21,7 +20,6 @@ void Ishape::initializeShapeMatrix()
 
 void Ishape::input(char matrix[20][10])
 {
-    printf(":)\n");
     
     char input;
     scanf(" %c", &input);
@@ -69,12 +67,7 @@ void Ishape::input(char matrix[20][10])
         }
        
     }
-    /*else if(input == 'S' || input == 's'){
-        if(!checkBoundDown() && !checkHashInTheBottom(matrix)){
-            moveDown();
-        }
-    }
-     */
+   
 
 }
 
@@ -119,50 +112,6 @@ void Ishape::shapeI(){
 
 
    
-}
-void Ishape::moveUp(){
-    
-    for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; j++){
-            shapeMatrix[i][j].y--;
-            
-        }
-    }
-    
-}
-void Ishape::moveDown(){
-    for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; j++){
-            shapeMatrix[i][j].y++;
-            
-        }
-    }
-}
-
-
-void Ishape::moveRight()
-{
-    
-    
-    for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; j++){
-            shapeMatrix[i][j].x++;
-            
-        }
-    }
-    
-    
-}
-
-void Ishape::moveLeft(){
-    
-    
-    for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; j++){
-            
-            shapeMatrix[i][j].x--;
-        }
-    }
 }
 
 
@@ -240,7 +189,6 @@ bool Ishape::checkHashInTheBottom(char matrix[20][10]){
         for(int j = 0; j < 4; j++){
             
             if(matrix[shapeMatrix[i][j].y + 1][shapeMatrix[i][j].x] == '#' && shapeMatrix[i][j].switches == true){
-                printf("KILL ME\n");
 
                 return true;
             }

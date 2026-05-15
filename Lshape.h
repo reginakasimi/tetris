@@ -2,7 +2,6 @@
 
 class Lshape:public Shape{
     block shapeMatrix[3][3];
-    int next;
     
     
 public:
@@ -13,10 +12,6 @@ public:
     void resetSwitches();
     void drawShapeInBigMatrix(char matrix[20][10]);
     void shapeL();
-    void moveUp();
-    void moveDown();
-    void moveRight();
-    void moveLeft();
     bool checkHashInTheRight(char matrix[20][10]);
     bool checkHashOnTheLeft(char matrix[20][10]);
     bool checkHashInTheBottom(char matrix[20][10]);
@@ -44,6 +39,9 @@ public:
         
         return prevMat;
 
+    }
+    block (*getRawMatrix())[4] override {
+        return (block (*)[4])shapeMatrix;
     }
     
     

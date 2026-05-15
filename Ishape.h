@@ -2,7 +2,7 @@
 
 class Ishape:public Shape{
     block shapeMatrix[4][4];
-    int next;
+    
     
     
 public:
@@ -13,14 +13,11 @@ public:
     void resetSwitches();
     void drawShapeInBigMatrix(char matrix[20][10]);
     void shapeI();
-    void moveUp();
-    void moveDown();
-    void moveRight();
-    void moveLeft();
+    
     bool checkHashInTheRight(char matrix[20][10]);
     bool checkHashOnTheLeft(char matrix[20][10]);
     bool checkHashInTheBottom(char matrix[20][10]);
-    bool checkBoundDown()override;
+    virtual bool checkBoundDown() override;
     bool checkBoundLeft();
     bool checkBoundRight();
     void iAmOutOfBoundInTheBottom();
@@ -43,6 +40,12 @@ public:
         return prevMat;
 
     }
+    
+    block (*getRawMatrix())[4] override {
+        
+        return (block (*)[4])shapeMatrix;
+    }
+    
     
     
 };
