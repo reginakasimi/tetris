@@ -1,3 +1,6 @@
+# C++ Terminal Tetris Oyunu
+## Projenin Ne Yaptığı
+Oyun, terminal ekranında klasik Tetris mantığı ile çalışır. Farklı şekillerdeki bloklar (I, J, L, O, S, T, Z) yukarıdan aşağıya doğru düşer. Oyuncu blokları döndürebilir, sağa veya sola hareket ettirebilir. Bir sıra tamamen dolduğunda o sıra silinir. Yeni blok için yer kalmadığında oyun biter (Game Over).
 ## UML Sınıf Diyagramları (Önce / Sonra)
 
 ### 1. Önce (Faz 0 - İlk Durum)
