@@ -1,8 +1,6 @@
+## UML Sınıf Diyagramları (Önce / Sonra)
 
-##UML Sınıf Diyagramları (Önce / Sonra)
-
-###1. Önce (Faz 0 - İlk Durum)
-`main.cpp` oyun döngüsü, tüm somut figür sınıflarına doğrudan bağımlıydı (Tight Coupling).
+### 1. Önce (Faz 0 - İlk Durum)
 
 ```mermaid
 classDiagram
@@ -28,42 +26,7 @@ classDiagram
     Main ..> Tshape : Dogrudan Bagimli
     Main ..> Jshape : Dogrudan Bagimli
 
-
-
-
-```mermaid
-classDiagram
-    class Main {
-        +main()
-    }
-    class Factory {
-        +randomShapes()
-    }
-    class Shape {
-        <<abstract>>
-        +input()
-        +moveDown()
-    }
-    class Lshape {
-        +initializeShapeMatrix()
-    }
-    class Ishape {
-        +initializeShapeMatrix()
-    }
-    class Tshape {
-        +initializeShapeMatrix()
-    }
-
-    Main ..> Factory : Nesne Talep Eder
-    Factory ..> Shape : Uretir
-    Lshape --|> Shape : Miras Alir
-    Ishape --|> Shape : Miras Alir
-    Tshape --|> Shape : Miras Alir
-    Main ..> Shape : Sadece Arayuzu Kullanir
-
-
 ### 2. Sonra (Faz 1 - Factory Method Sonrası)
-Factory Method uygulandıktan sonra `main.cpp` somut sınıflardan tamamen izole edildi (Loose Coupling).
 
 ```mermaid
 classDiagram
