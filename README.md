@@ -102,3 +102,63 @@ classDiagram
     BorderDecorator --> GameComponent : Wraps (Composition)
     GameEngine --> Shape : Manages Shape Polymorphism
 ```
+### 3. Sonra (Faz 3 - State and Command Method Sonrası)
+
+```mermaid
+classDiagram
+    class GameEngine {
+        -unique_ptr~GameState~ currentState
+        +startGame()
+        +changeState(unique_ptr~GameState~ newState)
+        +resetMat()
+        +cleanPrevFrame()
+        +cleanPrevFrameIShape()
+        +cleanLine()
+        +randomShapes()
+        +getMatrix() char[20][10]&
+        +getCurrentShape() unique_ptr~Shape~&
+    }
+
+    %% --- PATTERN STATE ---
+    class GameState {
+        <<interface>>
+        +handleInput(GameEngine& game)*
+        +update(GameEngine& game)*
+        +draw(GameEngine& game)*
+    }
+
+    class GameplayState {
+        +handleInput(GameEngine& game)
+        +update(GameEngine& game)
+        +draw(GameEngine& game)
+    }
+
+    class GameOverState {
+        -unique_ptr~Command~ command
+        +handleInput(GameEngine& game)
+        +update(GameEngine& game)
+        +draw(GameEngine& game)
+    }
+
+    GameState <|-- GameplayState : implements
+    GameState <|-- GameOverState : implements
+    GameEngine *-- GameState : composes (currentState)
+
+    %% --- PATTERN COMMAND ---
+    class Command {
+        <<interface>>
+        +execute(GameEngine& game)*
+    }
+
+    class RestartCommand {
+        +execute(GameEngine& game)
+    }
+
+    class QuitCommand {
+        +execute(GameEngine& game)
+    }
+
+    Command <|-- RestartCommand : implements
+    Command <|-- QuitCommand : implements
+    GameOverState *-- Command : associates (creates & executes)
+```
