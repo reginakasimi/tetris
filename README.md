@@ -29,8 +29,7 @@ classDiagram
     Main ..> Jshape : Dogrudan Bagimli
 
 
-###2. Sonra (Faz 1 - Factory Method Sonrası)
-Factory Method uygulandıktan sonra `main.cpp` somut sınıflardan tamamen izole edildi (Loose Coupling).
+
 
 ```mermaid
 classDiagram
