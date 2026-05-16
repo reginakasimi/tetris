@@ -1,1 +1,1 @@
-
+FACTORY örüntüyü main Shape.h koduna ekledim. Açık/Kapalı Prensibi (OCP): İleride yeni bir şekil eklemek istediğimizde `main` fonksiyonundaki oyun döngüsüne dokunmamak, sadece fabrikaya ekleme yapmak için bu örüntü seçildi. Ana oyun döngüsü (`main`) artık sadece `Shape` soyut sınıfı ile konuşuyor, somut alt sınıflara bağımlı değil. Kod daha temiz, okunabilir ve genişletilebilir hale geldi.
