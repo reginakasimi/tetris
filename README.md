@@ -27,3 +27,37 @@ classDiagram
     Main ..> Ishape : Dogrudan Bagimli
     Main ..> Tshape : Dogrudan Bagimli
     Main ..> Jshape : Dogrudan Bagimli
+
+
+2. Sonra (Faz 1 - Factory Method Sonrası)
+Factory Method uygulandıktan sonra `main.cpp` somut sınıflardan tamamen izole edildi (Loose Coupling).
+
+```mermaid
+classDiagram
+    class Main {
+        +main()
+    }
+    class Factory {
+        +randomShapes()
+    }
+    class Shape {
+        <<abstract>>
+        +input()
+        +moveDown()
+    }
+    class Lshape {
+        +initializeShapeMatrix()
+    }
+    class Ishape {
+        +initializeShapeMatrix()
+    }
+    class Tshape {
+        +initializeShapeMatrix()
+    }
+
+    Main ..> Factory : Nesne Talep Eder
+    Factory ..> Shape : Uretir
+    Lshape --|> Shape : Miras Alir
+    Ishape --|> Shape : Miras Alir
+    Tshape --|> Shape : Miras Alir
+    Main ..> Shape : Sadece Arayuzu Kullanir
