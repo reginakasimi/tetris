@@ -1,0 +1,4 @@
+AI bana şunu söyledi: 
+Bence burada kesinlikle Adapter pattern kullanmalısın. Çünkü Ishape sınıfı 4x4 matris kullanırken diğer sınıflar 3x3 matris kullanıyor. Adapter kullanarak 3x3'lük matrisleri 4x4'e uydurabilirsin. Facade pattern ise burada işe yaramaz, çünkü Facade nesne yaratma (creational) süreçlerini yönetir ve Factory Method'un bir alternatifidir, bizim zaten Factory'miz var.
+
+AI bana Adapter pattern önerek 3x3 ve 4x4 matrisleri birleştirmemi söyledi, ancak oyun döngümde böyle bir dönüşüme ihtiyacım yok. Asıl büyük hatası ise Facade pattern'i "nesne yaratıcı (creational)" bir örüntü sanmasıydı. Oysa Facade, yapısal (structural) bir örüntüdür ve karmaşık alt sistemleri (benim main.cpp'deki karmaşık matris ve satır silme işlemlerim gibi) gizlemek için kullanılır. AI'ın bu temel hatasını fark ettim, Adapter önerisini reddettim ve karmaşık main.cpp yapımı temizlemek için Facade pattern'i kendim uygulamaya karar verdim.

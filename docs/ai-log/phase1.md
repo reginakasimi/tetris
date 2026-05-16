@@ -1,0 +1,1 @@
+In this phase I was asking AI how I can commit and push. I changed code in some places. The similar functions that I had in all shape classes i just put them inside main Shape.h class and deleted them in shape classes (like Tshape.cpp and etc.).
