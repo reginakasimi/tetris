@@ -11,7 +11,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include "BorderDecorator.h"
+
 #include "GameplayState.h"
+
 
 GameEngine::GameEngine() {
     srand(static_cast<unsigned>(time(NULL)));
@@ -82,14 +84,18 @@ void GameEngine::randomShapes() {
         case 6: isItI = true;  currentShape = std::make_unique<Ishape>(); break;
     }
 }
+
 void GameEngine::changeState(std::unique_ptr<GameState> newState) {
     currentState = std::move(newState);
 }
+
 void GameEngine::startGame() {
     resetMat();
     randomShapes();
     
+
     visualDecorator = std::make_unique<BorderDecorator>(nullptr);
+
     visualDecorator->drawFrame(matrix);
 
     printf("W - change direction\n");
@@ -97,6 +103,7 @@ void GameEngine::startGame() {
     printf("A - go left\n");
     printf("S - go down\n");
     
+
     
     changeState(std::make_unique<GameplayState>());
 
@@ -107,6 +114,7 @@ void GameEngine::startGame() {
         currentState->update(*this);
         if (currentState == nullptr) break;
         currentState->draw(*this);
+
     }
 }
 
