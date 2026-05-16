@@ -12,6 +12,9 @@
 #include <time.h>
 #include "BorderDecorator.h"
 
+#include "GameplayState.h"
+
+
 GameEngine::GameEngine() {
     srand(static_cast<unsigned>(time(NULL)));
     isItI = false;
@@ -82,13 +85,17 @@ void GameEngine::randomShapes() {
     }
 }
 
+void GameEngine::changeState(std::unique_ptr<GameState> newState) {
+    currentState = std::move(newState);
+}
+
 void GameEngine::startGame() {
     resetMat();
     randomShapes();
     
 
     visualDecorator = std::make_unique<BorderDecorator>(nullptr);
-    
+
     visualDecorator->drawFrame(matrix);
 
     printf("W - change direction\n");
@@ -96,28 +103,18 @@ void GameEngine::startGame() {
     printf("A - go left\n");
     printf("S - go down\n");
     
-    while(true){
-        if(isItI == false){
-            cleanPrevFrame();
-        } else {
-            cleanPrevFrameIShape();
-        }
-        
-        currentShape->input(matrix);
-        
-        if(!currentShape->checkHashInTheBottom(matrix) && !currentShape->checkBoundDown()){
-            currentShape->moveDown();
-        } else {
-            currentShape->drawShapeInBigMatrix(matrix);
-            randomShapes();
-            cleanLine();
-            continue;
-        }
-        
-        currentShape->drawShapeInBigMatrix(matrix);
-        
-        visualDecorator->drawFrame(matrix);
-        printf("\n\n");
+
+    
+    changeState(std::make_unique<GameplayState>());
+
+    
+    while(currentState != nullptr){
+        currentState->handleInput(*this);
+        if (currentState == nullptr) break;
+        currentState->update(*this);
+        if (currentState == nullptr) break;
+        currentState->draw(*this);
+
     }
 }
 

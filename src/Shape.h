@@ -17,13 +17,13 @@ protected:
     int next = 1;
 
 public:
-    virtual ~Shape() {}
+    
+    virtual ~Shape() = default;
 
     void moveDown();
     void moveLeft();
     void moveRight();
     void moveUp();
-
     
     virtual void drawShapeInBigMatrix(char matrix[20][10]) = 0;
     virtual void input(char matrix[20][10]) = 0;
