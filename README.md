@@ -25,7 +25,11 @@ classDiagram
     Main ..> Ishape : Dogrudan Bagimli
     Main ..> Tshape : Dogrudan Bagimli
     Main ..> Jshape : Dogrudan Bagimli
+
+```text
 ### 2. Sonra (Faz 1 - Factory Method Sonrası)
+
+```mermaid
 classDiagram
     class Main {
         +main()
