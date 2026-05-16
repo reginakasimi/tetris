@@ -1,7 +1,7 @@
 
 ##UML Sınıf Diyagramları (Önce / Sonra)
 
-##1. Önce (Faz 0 - İlk Durum)
+###1. Önce (Faz 0 - İlk Durum)
 `main.cpp` oyun döngüsü, tüm somut figür sınıflarına doğrudan bağımlıydı (Tight Coupling).
 
 ```mermaid
@@ -29,7 +29,7 @@ classDiagram
     Main ..> Jshape : Dogrudan Bagimli
 
 
-##2. Sonra (Faz 1 - Factory Method Sonrası)
+###2. Sonra (Faz 1 - Factory Method Sonrası)
 Factory Method uygulandıktan sonra `main.cpp` somut sınıflardan tamamen izole edildi (Loose Coupling).
 
 ```mermaid
